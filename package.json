@@ -1,0 +1,67 @@
+{
+    "name": "frontendext",
+    "displayName": "Front End Extension",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "TzachOvadia",
+    "engines": {
+        "vscode": "^1.10.0"
+    },
+    "categories": [
+        "Other",
+        "Extension Packs"
+    ],
+    "activationEvents": [
+        "workspaceContains:.angular-cli.json"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.createComponent",
+                "title": "New component"
+            },
+            {
+                "command": "extension.addSpec",
+                "title": "Add spec file"
+            },
+            {
+                "command": "extension.addTestMethod",
+                "title": "Add test method"
+            }
+        ],
+        "menus": {
+            "explorer/context": [
+                {
+                    "command": "extension.createComponent",
+                    "group": "Angular@1",
+                    "when": "explorerResourceIsFolder"
+                },
+                {
+                    "command": "extension.addSpec",
+                    "group": "Angular@1",
+                    "when": "resourceLangId == typescript"
+                }
+            ],
+            "editor/context": [
+                {
+                    "command": "extension.addTestMethod",
+                    "when": "resourceLangId == typescript"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    }
+}

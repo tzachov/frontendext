@@ -2,7 +2,7 @@
     "name": "frontendext",
     "displayName": "Front End Extension",
     "description": "",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "TzachOvadia",
     "engines": {
         "vscode": "^1.10.0"
@@ -12,7 +12,8 @@
         "Extension Packs"
     ],
     "activationEvents": [
-        "workspaceContains:.angular-cli.json"
+        "workspaceContains:.angular-cli.json",
+        "workspaceContains:angular-cli.json"
     ],
     "main": "./out/src/extension",
     "contributes": {

@@ -2,7 +2,7 @@
     "name": "frontendext",
     "displayName": "Front End Extension",
     "description": "",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "publisher": "TzachOvadia",
     "engines": {
         "vscode": "^1.10.0"
@@ -11,6 +11,11 @@
         "Other",
         "Extension Packs"
     ],
+    "preview": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tzachov/frontendext"
+    },
     "activationEvents": [
         "workspaceContains:.angular-cli.json",
         "workspaceContains:angular-cli.json"

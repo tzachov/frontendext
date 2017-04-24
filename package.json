@@ -28,12 +28,12 @@
                 "title": "New component"
             },
             {
-                "command": "extension.addSpec",
-                "title": "Add spec file"
-            },
-            {
                 "command": "extension.addTestMethod",
                 "title": "Add test method"
+            },
+            {
+                "command": "extension.formatJson",
+                "title": "Format JSON"
             }
         ],
         "menus": {
@@ -42,19 +42,21 @@
                     "command": "extension.createComponent",
                     "group": "Angular@1",
                     "when": "explorerResourceIsFolder"
-                },
-                {
-                    "command": "extension.addSpec",
-                    "group": "Angular@1",
-                    "when": "resourceLangId == typescript"
                 }
             ],
             "editor/context": [
                 {
                     "command": "extension.addTestMethod",
                     "when": "resourceLangId == typescript"
+                },
+                {
+                    "command": "extension.formatJson"
                 }
             ]
+        },
+        "keybindings": {
+            "command": "extension.createComponent",
+            "key": "alt+shift+c"
         }
     },
     "scripts": {
@@ -62,6 +64,10 @@
         "compile": "tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "node ./node_modules/vscode/bin/test"
+    },
+    "dependencies": {
+        "jsonlint": "^1.6.2",
+        "strip-json-comments": "^2.0.1"
     },
     "devDependencies": {
         "typescript": "^2.0.3",

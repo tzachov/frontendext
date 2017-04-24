@@ -5,6 +5,10 @@
 - Create a spec file for Angular component
 - Extract unit test for method
 
+## [0.0.5] - 2017-04-25
+### Added
+- Added shortcut key for creating Angular components (Alt+Shift+C)
+
 ## [0.0.4] - 2017-03-20
 ### Fixed
 - New component instructions on readme were inaccurate

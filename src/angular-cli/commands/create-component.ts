@@ -23,7 +23,13 @@ export function createComponent(args: CommandArgs, terminal: vscode.Terminal) {
                     let rootFolder = 'src'; // TODO: read from .angular-cli.json\apps[0]
                     let appFolder = 'app';
 
-                    let appBase = args.fsPath.substring(args.fsPath.indexOf(rootFolder + '\\' + appFolder));
+                    const fsPath = args && args.fsPath ? args.fsPath : vscode.window.activeTextEditor.document.uri.fsPath;
+                    if (!fsPath) {
+                        vscode.window.setStatusBarMessage('Could not find path to create component', 3000);
+                        return;
+                    } 
+                    
+                    const appBase = fsPath.substring(fsPath.indexOf(rootFolder + '\\' + appFolder), fsPath.lastIndexOf('\\'));
                     let itemPath = appBase.substring((rootFolder + '\\' + appFolder).length + 1);
 
                     let itemName = (itemPath ? itemPath + '\\' : '') + name;

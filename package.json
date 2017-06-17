@@ -43,13 +43,22 @@
             {
                 "command": "extension.sortImports",
                 "title": "Sort Imports"
+            },
+            {
+                "command": "extension.createBarrel",
+                "title": "Create Barrel"
             }
+
         ],
         "menus": {
             "explorer/context": [
                 {
                     "command": "extension.createComponent",
                     "group": "Angular@1",
+                    "when": "explorerResourceIsFolder"
+                },
+                {
+                    "command": "extension.createBarrel",
                     "when": "explorerResourceIsFolder"
                 }
             ],

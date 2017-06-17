@@ -5,9 +5,11 @@
 - Create a spec file for Angular component
 - Extract unit test for method
 
-## [0.1.1] - 2017-04-28
+## [0.1.1] - 2017-06-17
 ### Added
+- Added `Create Barrel` option on folder context menu (right-click on a folder -> Create Barrel)
 - Update description and colors for VSC Marketplace
+- Initial support for sorting import statements in TypeScript files (right-click in a editor -> Sort Imports)
 
 ## [0.1.0] - 2017-04-25
 ### Added

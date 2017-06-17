@@ -2,7 +2,7 @@
     "name": "frontendext",
     "displayName": "Front End Extension",
     "description": "A complete set of tools for modern front end development",
-    "version": "0.0.6",
+    "version": "0.1.1",
     "publisher": "TzachOvadia",
     "icon": "images/main_icon.png",
     "galleryBanner": {
@@ -48,7 +48,6 @@
                 "command": "extension.createBarrel",
                 "title": "Create Barrel"
             }
-
         ],
         "menus": {
             "explorer/context": [

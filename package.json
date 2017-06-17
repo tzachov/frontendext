@@ -1,9 +1,14 @@
 {
     "name": "frontendext",
     "displayName": "Front End Extension",
-    "description": "",
-    "version": "0.0.5",
+    "description": "A complete set of tools for modern front end development",
+    "version": "0.0.6",
     "publisher": "TzachOvadia",
+    "icon": "images/main_icon.png",
+    "galleryBanner": {
+        "color": "#0072be",
+        "theme": "light"
+    },
     "engines": {
         "vscode": "^1.10.0"
     },
@@ -34,6 +39,10 @@
             {
                 "command": "extension.formatJson",
                 "title": "Format JSON"
+            },
+            {
+                "command": "extension.sortImports",
+                "title": "Sort Imports"
             }
         ],
         "menus": {
@@ -47,6 +56,10 @@
             "editor/context": [
                 {
                     "command": "extension.addTestMethod",
+                    "when": "resourceLangId == typescript"
+                },
+                {
+                    "command": "extension.sortImports",
                     "when": "resourceLangId == typescript"
                 },
                 {

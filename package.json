@@ -10,8 +10,9 @@
         "theme": "light"
     },
     "engines": {
-        "vscode": "^1.10.0"
+        "vscode": "^1.25.0"
     },
+    "enableProposedApi": true,
     "categories": [
         "Other",
         "Extension Packs"
@@ -23,12 +24,17 @@
     },
     "activationEvents": [
         "workspaceContains:.angular-cli.json",
-        "workspaceContains:angular-cli.json"
+        "workspaceContains:angular-cli.json",
+        "workspaceContains:angular.json"
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [
-            {
+        "iconThemes": [{
+            "id": "vs-seti",
+            "label": "Seti (Visual Studio Code)",
+            "path": "./icons/vs-seti-icon-theme.json"
+        }],
+        "commands": [{
                 "command": "extension.createComponent",
                 "title": "New component"
             },
@@ -47,11 +53,26 @@
             {
                 "command": "extension.createBarrel",
                 "title": "Create Barrel"
+            },
+            {
+                "command": "extension.readComments",
+                "title": "Read Comments"
+            },
+            {
+                "command": "extension.refreshActionComments",
+                "title": "Refresh"
+            },
+            {
+                "command": "extension.removeActionComment",
+                "title": "Remove"
+            },
+            {
+                "command": "extension.createActionItem",
+                "title": "Send"
             }
         ],
         "menus": {
-            "explorer/context": [
-                {
+            "explorer/context": [{
                     "command": "extension.createComponent",
                     "group": "Angular@1",
                     "when": "explorerResourceIsFolder"
@@ -61,8 +82,7 @@
                     "when": "explorerResourceIsFolder"
                 }
             ],
-            "editor/context": [
-                {
+            "editor/context": [{
                     "command": "extension.addTestMethod",
                     "when": "resourceLangId == typescript"
                 },
@@ -73,11 +93,43 @@
                 {
                     "command": "extension.formatJson"
                 }
-            ]
+            ],
+            "view/item/context": [{
+                "command": "extension.createActionItem",
+                "when": "view == actionComments",
+                "group": "inline"
+            }, {
+                "command": "extension.removeActionComment",
+                "when": "view == actionComments",
+                "group": "inline"
+            }],
+            "view/title": [{
+                "command": "extension.refreshActionComments",
+                "when": "view == actionComments",
+                "group": "navigation"
+            }]
         },
-        "keybindings": {
-            "command": "extension.createComponent",
-            "key": "alt+shift+c"
+        "keybindings": [{
+                "command": "extension.createComponent",
+                "key": "alt+shift+c"
+            },
+            {
+                "command": "extension.readComments",
+                "key": "alt+shift+r"
+            }
+        ],
+        "viewsContainers": {
+            "activitybar": [{
+                "id": "actionComments",
+                "title": "Action Comments",
+                "icon": "images/main_icon_bw.png"
+            }]
+        },
+        "views": {
+            "action-comments": [{
+                "id": "actionComments",
+                "name": "Action Comments"
+            }]
         }
     },
     "scripts": {
@@ -92,9 +144,9 @@
     },
     "devDependencies": {
         "typescript": "^2.0.3",
-        "vscode": "^1.0.0",
+        "vscode": "^1.1.18",
         "mocha": "^2.3.3",
-        "@types/node": "^6.0.40",
+        "@types/node": "*",
         "@types/mocha": "^2.2.32"
     }
 }

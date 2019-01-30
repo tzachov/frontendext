@@ -6,6 +6,8 @@ import { AngularCliModule } from './angular-cli/angular-cli.module';
 import { TestingModule } from './testing/testing.module';
 import { FormattingModule } from './formatting/formatting.module';
 
+import { ActionCommentTreeViewProvider, readComments } from './formatting/commands/read-comments';
+
 export function activate(context: vscode.ExtensionContext) {
 
     let terminal: vscode.Terminal = vscode.window.createTerminal('Front End Extension');
@@ -25,6 +27,9 @@ export function activate(context: vscode.ExtensionContext) {
         mod.registerCommands(context, 'extension', options);
     });
 
+    const actionCommentTreeViewProvider = new ActionCommentTreeViewProvider();
+    vscode.window.registerTreeDataProvider('actionComments', actionCommentTreeViewProvider);
+
     /*context.subscriptions.push(
         vscode.languages.registerDocumentRangeFormattingEditProvider(FILE_MODE, new JSONFormatter())
     );*/
@@ -32,6 +37,11 @@ export function activate(context: vscode.ExtensionContext) {
 
 export function deactivate() {
 }
+
+
+// export class DepNodeProvider implements vscode.TreeDataProvider<Dependency> {
+    
+// }
 
 /*const FILE_MODE: vscode.DocumentFilter = { scheme: 'file' };
 
